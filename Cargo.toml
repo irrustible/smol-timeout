@@ -1,0 +1,17 @@
+[package]
+name = "smol-timeout"
+description = "A way to poll a future until it or a 'smol::Timer' completes."
+version = "0.1.0"
+homepage = "https://github.com/r3v2d0g/smol-timeout"
+repository = "https://github.com/r3v2d0g/smol-timeout"
+documentation = "https://docs.rs/smol-timeout"
+keywords = ["async", "await", "future", "futures"]
+categories = ["asynchronous", "concurrency"]
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+authors = ["Matthieu Le brazidec (r3v2d0g) <r3v2d0g@jesus.gg>"]
+edition = "2018"
+
+[dependencies]
+pin-project = "~0.4"
+smol = "~0.1"

@@ -1,0 +1,25 @@
+image: "rustlang/rust:nightly"
+
+stages:
+  - info
+  - build
+  - test
+
+info:version:
+  stage: info
+  script: rustc --version && cargo --version
+
+build:debug:
+  stage: build
+  script: cargo build --all
+  needs: ["info:version"]
+
+build:release:
+  stage: build
+  script: cargo build --all --release
+  needs: ["info:version"]
+
+test:
+  stage: test
+  script: cargo test --all --verbose
+  needs: ["build:debug"]
