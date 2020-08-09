@@ -1,6 +1,9 @@
 # `smol-timeout`
 
+[![img](https://img.shields.io/crates/l/smol-timeout.svg)](https://github.com/r3v2d0g/smol-timeout/blob/main/LICENSE.txt) [![img](https://img.shields.io/crates/v/smol-timeout.svg)](https://crates.io/crates/smol-timeout) [![img](https://docs.rs/smol-timeout/badge.svg)](https://docs.rs/smol-timeout)
+
 A way to poll a future until it or a `smol::Timer` completes.
+
 
 ## Example
 
