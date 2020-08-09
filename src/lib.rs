@@ -54,6 +54,7 @@ use smol::Timer;
 // ============================================ Types =========================================== \\
 
 pin_project! {
+    #[derive(Debug)]
     /// A future polling both another future and a [`Timer`] that will complete after a specified
     /// timeout, and returning the future's output or [`None`] if the timer completes first.
     ///
