@@ -8,7 +8,7 @@ documentation = "https://docs.rs/smol-timeout"
 keywords = ["async", "await", "future", "futures"]
 categories = ["asynchronous", "concurrency"]
 readme = "README.md"
-license = "MIT OR Apache-2.0"
+license = "MPL-2.0"
 authors = ["Matthieu Le brazidec (r3v2d0g) <r3v2d0g@jesus.gg>"]
 edition = "2018"
 

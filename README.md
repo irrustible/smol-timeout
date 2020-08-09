@@ -29,8 +29,7 @@ smol::run(async {
 ```
 
 ## License
-Licensed under either of Apache License, Version 2.0 or MIT license at your option.
 
-Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in
-this crate by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without
-any additional terms or conditions.
+> This Source Code Form is subject to the terms of the Mozilla Public
+> License, v. 2.0. If a copy of the MPL was not distributed with this
+> file, You can obtain one at <http://mozilla.org/MPL/2.0/>.
