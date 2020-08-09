@@ -13,5 +13,5 @@ authors = ["Matthieu Le brazidec (r3v2d0g) <r3v2d0g@jesus.gg>"]
 edition = "2018"
 
 [dependencies]
-pin-project = "~0.4"
-smol = "~0.1"
+pin-project-lite = "0.1"
+smol = "0.3"

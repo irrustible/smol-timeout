@@ -11,7 +11,7 @@ use std::time::Duration;
 
 smol::run(async {
     let foo = async {
-        Timer::after(Duration::from_millis(250)).await;
+        Timer::new(Duration::from_millis(250)).await;
         24
     };
 
@@ -19,13 +19,13 @@ smol::run(async {
     assert_eq!(foo.await, None);
 
     let bar = async {
-        Timer::after(Duration::from_millis(100)).await;
+        Timer::new(Duration::from_millis(100)).await;
         42
     };
 
     let bar = bar.timeout(Duration::from_millis(250));
     assert_eq!(bar.await, Some(42));
-})
+});
 ```
 
 ## License
