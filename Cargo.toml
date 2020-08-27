@@ -14,4 +14,4 @@ edition = "2018"
 
 [dependencies]
 pin-project-lite = "0.1"
-smol = "0.3"
+smol = "0.4"

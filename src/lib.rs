@@ -12,8 +12,6 @@
 
 // ======================================== Documentation ======================================= \\
 
-//! # smol-timeout
-//!
 //! A way to poll a future until it or a `smol::Timer` completes.
 //!
 //! ## Example
@@ -23,9 +21,9 @@
 //! use smol_timeout::TimeoutExt;
 //! use std::time::Duration;
 //!
-//! smol::run(async {
+//! smol::block_on(async {
 //!     let foo = async {
-//!         Timer::new(Duration::from_millis(250)).await;
+//!         Timer::after(Duration::from_millis(250)).await;
 //!         24
 //!     };
 //!
@@ -33,7 +31,7 @@
 //!     assert_eq!(foo.await, None);
 //!
 //!     let bar = async {
-//!         Timer::new(Duration::from_millis(100)).await;
+//!         Timer::after(Duration::from_millis(100)).await;
 //!         42
 //!     };
 //!
@@ -65,9 +63,9 @@ pin_project! {
     /// use smol_timeout::TimeoutExt;
     /// use std::time::Duration;
     ///
-    /// # smol::run(async {
+    /// # smol::block_on(async {
     /// let foo = async {
-    ///     Timer::new(Duration::from_millis(250)).await;
+    ///     Timer::after(Duration::from_millis(250)).await;
     ///     24
     /// };
     ///
@@ -75,7 +73,7 @@ pin_project! {
     /// assert_eq!(foo.await, None);
     ///
     /// let bar = async {
-    ///     Timer::new(Duration::from_millis(100)).await;
+    ///     Timer::after(Duration::from_millis(100)).await;
     ///     42
     /// };
     ///
@@ -106,9 +104,9 @@ pub trait TimeoutExt: Future {
     /// use smol_timeout::TimeoutExt;
     /// use std::time::Duration;
     ///
-    /// # smol::run(async {
+    /// # smol::block_on(async {
     /// let foo = async {
-    ///     Timer::new(Duration::from_millis(250)).await;
+    ///     Timer::after(Duration::from_millis(250)).await;
     ///     24
     /// };
     ///
@@ -116,7 +114,7 @@ pub trait TimeoutExt: Future {
     /// assert_eq!(foo.await, None);
     ///
     /// let bar = async {
-    ///     Timer::new(Duration::from_millis(100)).await;
+    ///     Timer::after(Duration::from_millis(100)).await;
     ///     42
     /// };
     ///
@@ -130,7 +128,7 @@ pub trait TimeoutExt: Future {
     {
         Timeout {
             future: self,
-            timer: Timer::new(after),
+            timer: Timer::after(after),
         }
     }
 }
