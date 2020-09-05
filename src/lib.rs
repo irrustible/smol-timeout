@@ -12,42 +12,45 @@
 
 // ======================================== Documentation ======================================= \\
 
-//! A way to poll a future until it or a `smol::Timer` completes.
+//! A way to poll a future until it or a timer completes.
 //!
 //! ## Example
 //!
 //! ```rust
-//! use smol::Timer;
+//! use async_io::Timer;
+//! # use futures_lite::future;
 //! use smol_timeout::TimeoutExt;
 //! use std::time::Duration;
 //!
-//! smol::block_on(async {
-//!     let foo = async {
-//!         Timer::after(Duration::from_millis(250)).await;
-//!         24
-//!     };
+//! # future::block_on(async {
+//! #
+//! let foo = async {
+//!     Timer::after(Duration::from_millis(250)).await;
+//!     24
+//! };
 //!
-//!     let foo = foo.timeout(Duration::from_millis(100));
-//!     assert_eq!(foo.await, None);
+//! let foo = foo.timeout(Duration::from_millis(100));
+//! assert_eq!(foo.await, None);
 //!
-//!     let bar = async {
-//!         Timer::after(Duration::from_millis(100)).await;
-//!         42
-//!     };
+//! let bar = async {
+//!     Timer::after(Duration::from_millis(100)).await;
+//!     42
+//! };
 //!
-//!     let bar = bar.timeout(Duration::from_millis(250));
-//!     assert_eq!(bar.await, Some(42));
-//! });
+//! let bar = bar.timeout(Duration::from_millis(250));
+//! assert_eq!(bar.await, Some(42));
+//! #
+//! # });
 //! ```
 
 // =========================================== Imports ========================================== \\
 
+use async_io::Timer;
 use core::future::Future;
 use core::pin::Pin;
 use core::task::{Context, Poll};
 use core::time::Duration;
 use pin_project_lite::pin_project;
-use smol::Timer;
 
 // ============================================ Types =========================================== \\
 
@@ -59,11 +62,13 @@ pin_project! {
     /// ## Example
     ///
     /// ```rust
-    /// # use smol::Timer;
+    /// use async_io::Timer;
+    /// # use futures_lite::future;
     /// use smol_timeout::TimeoutExt;
     /// use std::time::Duration;
     ///
-    /// # smol::block_on(async {
+    /// # future::block_on(async {
+    /// #
     /// let foo = async {
     ///     Timer::after(Duration::from_millis(250)).await;
     ///     24
@@ -79,6 +84,7 @@ pin_project! {
     ///
     /// let bar = bar.timeout(Duration::from_millis(250));
     /// assert_eq!(bar.await, Some(42));
+    /// #
     /// # })
     /// ```
     pub struct Timeout<Fut: Future> {
@@ -100,11 +106,13 @@ pub trait TimeoutExt: Future {
     /// ## Example
     ///
     /// ```rust
-    /// # use smol::Timer;
+    /// use async_io::Timer;
+    /// # use futures_lite::future;
     /// use smol_timeout::TimeoutExt;
     /// use std::time::Duration;
     ///
-    /// # smol::block_on(async {
+    /// # future::block_on(async {
+    /// #
     /// let foo = async {
     ///     Timer::after(Duration::from_millis(250)).await;
     ///     24
@@ -120,6 +128,7 @@ pub trait TimeoutExt: Future {
     ///
     /// let bar = bar.timeout(Duration::from_millis(250));
     /// assert_eq!(bar.await, Some(42));
+    /// #
     /// # })
     /// ```
     fn timeout(self, after: Duration) -> Timeout<Self>
