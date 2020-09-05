@@ -1,7 +1,7 @@
 [package]
 name = "smol-timeout"
 description = "A way to poll a future until it or a timer completes."
-version = "0.4.0"
+version = "0.5.0"
 homepage = "https://github.com/r3v2d0g/smol-timeout"
 repository = "https://github.com/r3v2d0g/smol-timeout"
 documentation = "https://docs.rs/smol-timeout"
