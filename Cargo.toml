@@ -13,8 +13,8 @@ authors = ["Matthieu Le brazidec (r3v2d0g) <r3v2d0g@jesus.gg>"]
 edition = "2018"
 
 [dependencies]
-async-io = "0.2"
+async-io = "1.1"
 pin-project-lite = "0.1"
 
 [dev-dependencies]
-futures-lite = "1.0"
+futures-lite = "1.8"
